@@ -8,8 +8,8 @@ wx_params = ['maxt','mint','wspd']
 
 def get_data(param):
     http = urllib3.PoolManager()
-    r = http.request('GET', "https://tgftp.nws.noaa.gov/SL.us008001/ST.expr/DF.gr2/DC.ndfd/AR.conus/VP.001-003/ds.{0}.bin".format(param))
-    fh = open("data/ds.{0}.bin".format(param),'wb')
+    r = http.request('GET', f"https://tgftp.nws.noaa.gov/SL.us008001/ST.expr/DF.gr2/DC.ndfd/AR.conus/VP.001-003/ds.{param}.bin")
+    fh = open(f"data/ds.{param}.bin",'wb')
     fh.write(r.data)
     fh.close()
 
